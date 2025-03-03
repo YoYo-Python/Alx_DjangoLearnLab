@@ -1,6 +1,6 @@
 # Delete Book Instance
 
-from .models import Book  # Import the Book model
+from bookshelf.models import Book  # Import the Book model
 
 # Retrieve the book by title
 book = Book.objects.get(title="Nineteen Eighty-Four")
