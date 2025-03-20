@@ -22,7 +22,7 @@ def query_books_by_author(author_name):
 
 def list_all_books_in_library(library_name):
     """ List all books available in a specific library. """
-    books = Library.books.all()
+    books = Library.objects.get(name="library_name")
     return books
 
 def get_librarian_for_library(library_name):
