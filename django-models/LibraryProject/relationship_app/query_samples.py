@@ -27,11 +27,9 @@ def list_all_books_in_library(library_name):
 
 def get_librarian_for_library(library_name):
     """ Retrieve the librarian for a specific library. """
-    try:
-        library = Librarian.objects.get(library=library_name)
-        return library # Assuming a OneToOneField to Librarian
-    except Library.DoesNotExist:
-        return None
+    library = Library.objects.get(name=library_name)
+    librarian = Librarian.objects.get(library=library)
+    return librarian.name
 
 if __name__ == "__main__":
     author_name = "J.K. Rowling"
