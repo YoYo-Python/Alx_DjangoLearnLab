@@ -1,7 +1,11 @@
 import os
 import django
+import sys
 
-# Set the environment variable for Django settings
+# Add the project root to sys.path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
+
+# Set up Django settings
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "LibraryProject.settings")
 
 # Initialize Django
