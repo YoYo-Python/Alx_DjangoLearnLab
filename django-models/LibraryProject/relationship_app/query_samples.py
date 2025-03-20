@@ -22,13 +22,16 @@ def query_books_by_author(author_name):
 
 def list_all_books_in_library(library_name):
     """ List all books available in a specific library. """
-    books = Library.objects.get(name="library_name")
+    books = Library.books.all()
     return books
 
 def get_librarian_for_library(library_name):
     """ Retrieve the librarian for a specific library. """
-    
-    return Librarian.objects.get(library=library_name)
+    try:
+        library = Library.objects.get(name=library_name)
+        return library.librarian  # Assuming a OneToOneField to Librarian
+    except Library.DoesNotExist:
+        return None
 
 if __name__ == "__main__":
     author_name = "J.K. Rowling"
