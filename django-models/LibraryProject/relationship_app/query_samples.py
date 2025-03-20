@@ -12,6 +12,8 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "LibraryProject.settings")
 django.setup()
 
 from relationship_app.models import Author, Book, Library, Librarian
+library = Library.objects.first()
+
 
 def query_books_by_author(author_name):
     """ Query all books written by a specific author. """
@@ -20,7 +22,7 @@ def query_books_by_author(author_name):
 
 def list_all_books_in_library(library_name):
     """ List all books available in a specific library. """
-    books = Book.objects.filter(library__name=library_name)
+    books = Library.books.all()
     return books
 
 def get_librarian_for_library(library_name):
