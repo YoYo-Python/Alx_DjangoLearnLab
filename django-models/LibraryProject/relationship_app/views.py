@@ -39,8 +39,30 @@ class RegistrationView(CreateView):
     success_url = reverse_lazy('login')
     template_name = 'relationship_app/register.html'
 
-# # Create a new user
-# user = User.objects.create_user('bro', 'bro@example.com', 'Super_1224')
-# user_profile = UserProfile.objects.create(user=user, role='Admin')
-# # Retrieve a user based on username
-# # user = User.objects.get(username='john')
+# Role-checking functions
+def is_admin(user):
+    return UserProfile.objects.filter(user=user, role="Admin").exists()
+
+def is_librarian(user):
+    return UserProfile.objects.filter(user=user, role="Librarian").exists()
+
+def is_member(user):
+    return UserProfile.objects.filter(user=user, role="Member").exists()
+
+# Admin view
+@login_required
+@user_passes_test(is_admin)
+def admin_view(request):
+    return render(request, 'relationship_app/admin_view.html')
+
+# Librarian view
+@login_required
+@user_passes_test(is_librarian)
+def librarian_view(request):
+    return render(request, 'relationship_app/librarian_view.html')
+
+# Member view
+@login_required
+@user_passes_test(is_member)
+def member_view(request):
+    return render(request, 'relationship_app/member_view.html')
