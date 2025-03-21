@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -32,3 +33,12 @@ class Librarian(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+# Create a new user
+# user = User.objects.create_user('john', 'john@example.com', 'password123')
+
+# # Retrieve a user based on username
+# user = User.objects.get(username='john')
+
