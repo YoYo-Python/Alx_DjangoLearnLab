@@ -23,3 +23,6 @@ class LibraryBooksListView(ListView):
         context = super().get_context_data(**kwargs)
         context["books"] = self.get_queryset().books.all()  # Fetch books
         return context
+
+class LibraryDetailView(DetailView):
+    pass
