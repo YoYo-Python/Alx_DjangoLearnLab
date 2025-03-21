@@ -1,6 +1,9 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from django.urls import path
+from .admin_view import admin_view
+from .librarian_view import librarian_view
+from .member_view import member_view
 from .views import book_view, LibraryBooksListView, RegistrationView
 # from .views import list_books, LibraryDetailView
 from django.urls import path
@@ -18,6 +21,8 @@ urlpatterns = [
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('password_change/', auth_views.PasswordChangeView.as_view(), name='password_change'),
     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(), name='password_change_done'),
-
+    path('admin-dashboard/', admin_view, name='admin_view'),
+    path('librarian-dashboard/', librarian_view, name='librarian_view'),
+    path('member-dashboard/', member_view, name='member_view'),
 
 ]
