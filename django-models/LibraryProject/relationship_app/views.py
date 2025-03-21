@@ -12,6 +12,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login
 from .forms import BookForm 
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import permission_required
 # Create your views here.
 def book_view(request):
     books = Book.objects.all()
