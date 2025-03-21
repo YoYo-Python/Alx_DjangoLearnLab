@@ -5,7 +5,7 @@ from .views import book_view, LibraryBooksListView, RegistrationView
 # from .views import list_books, LibraryDetailView
 from django.urls import path
 from django.contrib.auth.views import LoginView, LogoutView
-
+# views.register
 urlpatterns = [
     path('book/', book_view, name='book-list'),
     path("library/<int:pk>/books/", LibraryBooksListView.as_view(), name="library-books"),
