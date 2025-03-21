@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.http import HttpResponse
-from .models import Book, Library
+from .models import Library
+from .models import Book
 # Create your views here.
 def book_view(request):
     books = Book.objects.all()
