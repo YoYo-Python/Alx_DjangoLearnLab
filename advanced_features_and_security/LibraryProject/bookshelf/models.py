@@ -8,7 +8,7 @@ class Book(models.Model):
     author = models.CharField(max_length=100)
     publication_year = models.IntegerField()
 
-class CustomUserManger(BaseUserManager):
+class CustomUserManager(BaseUserManager):
     def create(self,email,password,**extra_fields):
         if not email:
             raise ValueError("You have not provided a valid email address!!")
