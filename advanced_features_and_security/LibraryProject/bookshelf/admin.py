@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Book,User
+from .models import Book,CustomUser
 from django.contrib.auth.admin import UserAdmin
 # Register your models here.
 
@@ -15,7 +15,7 @@ admin.site.register(Book,BookAdmin)
 
 
 class CustomUserAdmin(UserAdmin):
-    model = User
+    model = CustomUser
     list_display = ("email", "name", "is_staff", "is_superuser")
     list_filter = ("is_staff", "is_superuser", "is_active")
     fieldsets = (
