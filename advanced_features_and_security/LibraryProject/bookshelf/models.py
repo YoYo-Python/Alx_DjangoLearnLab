@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import UserManager,AbstractUser,PermissionsMixin
+from django.contrib.auth.models import BaseUserManager,AbstractUser,PermissionsMixin
 
 # Create your models here.
 
@@ -8,7 +8,7 @@ class Book(models.Model):
     author = models.CharField(max_length=100)
     publication_year = models.IntegerField()
 
-class CustomUserManger(UserManager):
+class CustomUserManger(BaseUserManager):
     def create(self,email,password,**extra_fields):
         if not email:
             raise ValueError("You have not provided a valid email address!!")
