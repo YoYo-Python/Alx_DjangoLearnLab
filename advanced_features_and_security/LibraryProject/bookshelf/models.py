@@ -30,14 +30,14 @@ class CustomUserManger(UserManager):
         return self.create(email,password,**extra_fields)
 
 
-class CustomUser(AbstractUser,PermissionsMixin):
+class CustomUser(AbstractUser):
     email = models.EmailField(blank=True,default='',unique=True)
     name = models.CharField(max_length=255, blank=True,default='')
     date_of_birth = models.DateField(null=True, blank=True)  
     profile_photo = models.ImageField(upload_to="profile_photos/", null=True, blank=True)  
-    is_active = models.BooleanField(default=True)
-    is_superuser = models.BooleanField(default=False)
-    is_staff = models.BooleanField(default=False)
+    # is_active = models.BooleanField(default=True)
+    # is_superuser = models.BooleanField(default=False)
+    # is_staff = models.BooleanField(default=False)
 
     objects = CustomUserManger()
 
